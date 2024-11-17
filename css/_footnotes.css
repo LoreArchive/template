@@ -1,0 +1,30 @@
+/**
+ * This file provides styles for footnotes. It requires polishing.
+ */
+
+/*____________ footnotes inside the text ____________*/
+
+
+/* JSpopup */
+div.insitu-footnote {
+    min-width: 5em;
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2);
+
+}
+
+/*____________ footnotes at the bottom of the page ____________*/
+
+.dokuwiki div.footnotes {
+    border-top: 1px solid @ini_border;
+    padding: .5em 0 0 0;
+    margin: 1em 0 0 0;
+    clear: both;
+}
+.dokuwiki div.footnotes div.fn {
+}
+.dokuwiki div.footnotes div.fn div.content {
+    display: inline;
+}
+.dokuwiki div.footnotes div.fn sup a.fn_bot {
+    font-weight: bold;
+}

@@ -1,0 +1,196 @@
+/* ----------- DIVS ----------- */
+
+.dokuwiki div.primarybox { /*This targets the text wrapped inside <WRAP primarybox>. It styles it like a wikipedia home page panel. */
+
+    background-color: #f8fcfc;
+    border: 1px solid #cedff2;
+    padding: 0.7em;
+    text-align: left;
+
+
+}
+
+.dokuwiki div.primaryboxtitle {
+    background-color: #cedff2;
+    border: 1px solid #a3b1be;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.dokuwiki div.primaryboxtitle h4 {
+    margin: 0.2em;
+}
+
+
+.dokuwiki div.successbox { 
+    background-color: #f5fefb;
+    border: 1px solid #cef2e0;
+    padding: 0.7em;
+    text-align: left;
+
+
+}
+
+.dokuwiki div.successboxtitle {
+    background-color: #cef2e0;
+    border: 1px solid #a2bfb0;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.dokuwiki div.successbox h4 {
+    margin: 0.2em;
+}
+
+
+
+.dokuwiki div.plugin_wrap.wrap_homecard {
+    display: flex;
+    background-color: #f8f9fa;
+    border: transparent;
+    border-radius: 5px;
+    padding: 1em;
+    align-items: center;
+}
+
+.dokuwiki div.homecard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.dokuwiki div.homecard h3 {
+    border-bottom: none;
+    margin: 0 !important;
+}
+
+
+
+
+/* ************************************ ALERTS ************************************ */
+
+.dokuwiki div.alert p {
+    width: auto;
+}
+
+.dokuwiki div.alertflex p {
+    align-items: center;
+}
+
+/* ----------- TABLES ----------- */
+
+
+.dokuwiki table.tcenter tr td, table.tcenter thead tr th {
+    text-align: center;
+}
+
+.dokuwiki table.profileTable {
+    table-layout: fixed;
+    clear: both;
+    margin-left: 2em;
+    float: right;
+    max-width: 330px;
+
+}
+.dokuwiki table.profileTable tr td {
+
+    border: none;
+
+}
+
+.dokuwiki table.profileTable .profileTableImage {
+    padding: 0;
+    text-align: center;
+}
+.dokuwiki table.profileTable thead tr th, .profileTable .center {
+    text-align: center;
+    vertical-align: top;
+    
+}
+.dokuwiki table.profileTable .left {
+    padding-left: 0.9em;
+    text-align: left;
+    vertical-align: top;
+    
+}
+.dokuwiki table.academiesTable {
+    table-layout: fixed;
+    width: 90%;
+    margin: 0 auto 1.4em;
+}
+
+table.academiesTable thead tr th {
+    text-align: center;
+}
+
+table.academiesTable tbody tr {
+    margin-top: 0.3em;
+
+}
+
+table.academiesTable tbody tr td {
+    text-align: center;
+    border: none;
+
+}
+table.academiesTable tbody tr td p {
+    margin: 0;
+}
+
+
+table.academiesTable .iabutton {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+}
+
+.dokuwiki table.academiesTable .innerAcademiesTable {
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dokuwiki .profileList p {
+    margin: 0;
+}
+
+
+/* ----------- IMAGES ----------- */
+
+.thumb2.tright {
+    padding-right: 0;
+    margin: 0.5em 0 1.3em 1.4em;
+}
+
+
+
+/* ----------- MIKIOP ----------- */
+.mikiop.mikiop-blockquote p {
+    font-size: 1.1rem !important;
+}
+
+
+
+
+/* ---------------------- EXTENDED SYNTAX ---------------------- */
+
+div.alertnotif {
+    width: 80%;
+    margin: 2rem auto;
+}
+
+div.alertnotif i {
+    font-size: 1.5rem;
+}
+
+div.alertnotif p {
+    font-size: 1rem;
+}
+
+div.alertnotif p .alertnotifsubtext {
+    display: inline-block;
+    margin-top: 0.9rem;
+    font-size: 0.9rem;
+}

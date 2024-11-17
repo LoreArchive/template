@@ -1,0 +1,186 @@
+/**
+ * This file provides styling for everything which surround the wiki article. Some are waiting to be transferred to the design.css file.
+ *
+ * @author Anika Henke <anika@selfthinker.org>
+ * @author Cieron <cirrow@proton.me>
+ */
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0 auto;
+    background-color: white;
+}
+
+#dokuwiki__site {
+    top: 0;
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+#dokuwiki_nonheader {
+    margin-top: 8vh;
+    display: flex;
+    flex: 1;
+
+}
+
+
+
+#dokuwiki__aside {
+    border-right: 2px solid #c0c0c0;
+    height: calc(100vh - 8vh); /* 100% of the viewport height minus the header height */
+    overflow-y: auto;
+    position: sticky;
+    top: 8vh; /* Sidebar stays below the header */
+    width: __sidebar_width__;
+
+}
+
+#dokuwiki__aside > .pad {
+
+    padding: 0.5em;
+
+}
+
+
+#sidebarOffcanvas img {
+    max-height: 10vh;
+    width: auto;
+}
+
+
+#lorearchive__pagetools {
+    position: fixed;
+    left: 19em;
+    top: calc(50vh - 24.06px);
+    opacity: 0.3;
+    transition: opacity 0.5s ease;
+}
+
+
+#lorearchive__pagetools:hover {
+    opacity: 1;
+}
+
+#lorearchive__pagetools li {
+    list-style-type: none;
+}
+
+#lorearchive__pagetools li a span {
+    display: none;
+}
+
+
+
+@media (max-width: 992px) { /* bootstrap lg */
+
+    #lorearchive__pagetools {
+        left: 0.2em;
+    }
+
+}
+
+
+
+
+
+
+#dokuwiki__content {
+
+    padding: 0 4em 0 4em;
+
+}
+
+main {
+    flex: 1;
+    padding-top: 1em;
+    overflow-y: visible;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.page {
+    padding: 2em 1em 0 1em;
+    overflow-y: visible;
+    position: relative;
+
+}
+
+
+.backToTop {
+    display: none;
+}
+
+
+.toc {
+    position: sticky;
+    top: 8vh; /* Stick the TOC below the header */
+    overflow: hidden;
+    height: 100%;
+}
+
+
+.toc > .pad {
+    padding: 1em;
+}
+
+
+
+
+
+article {
+    margin-top: 2.5em;
+    padding-bottom: 1em;
+}
+
+
+
+
+#insitu__fn {
+    padding: 0.7em;
+    max-width: 365px;
+    border-radius: 6px;
+}
+
+
+article .footertext {
+
+    padding-top: 2em;
+    text-align: center;
+
+}
+
+
+
+
+@media (max-width: 1024px)
+{
+    .dokuwiki__aside {
+
+        display: none;
+    }
+}
+
+
+/* THIS SECTION DEALS WITH THE STRUCUTRE WHEN THE SCREEN IS LARGE */
+
+@media (min-width: 1900px) {
+    .page {
+        padding: 6rem;
+    }
+}
