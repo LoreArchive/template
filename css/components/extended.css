@@ -1,0 +1,38 @@
+/* ----------------- ALERTS ----------------- */
+
+div.alert p {
+    width: auto;
+}
+
+div.alertflex p {
+    align-items: center;
+}
+
+/* ----------------- NOTIFICATIONS ----------------- */
+
+.alertnotif {
+    width: 80%;
+    margin: 2rem auto;
+}
+
+.alertnotif i {
+    font-size: 1.5rem;
+}
+
+.alertnotif p {
+    font-size: 1rem;
+}
+
+.alertnotif p .alertnotifsubtext {
+    display: inline-block;
+    margin-top: 0.9rem;
+    font-size: 0.9rem;
+}
+
+
+
+/* ----------------- FIGURES ----------------- */
+.thumb2.tright {
+    padding-right: 0;
+    margin: 0.5em 0 0.5em 1.4em;
+}

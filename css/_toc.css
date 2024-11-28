@@ -21,7 +21,7 @@
 
 #dw__toc a.nav-link {
     border-left: 2px solid transparent;
-    font-size: 0.9em;
+    font-size: 0.85em;
     color: grey;
     padding: 0.3em 0.3em 0.3em 0.5em;
 }
@@ -45,26 +45,6 @@
 
 }
 
-
-
-
-
-
-
-/*____________ toc header ____________*/
-
-.dokuwiki h3.toggle {
-    padding: .2em .5em;
-    font-weight: bold;
-}
-
-.dokuwiki .toggle strong {
-    float: right;
-    margin: 0 .2em;
-}
-[dir=rtl] .dokuwiki .toggle strong {
-    float: left;
-}
 
 /*____________ toc list ____________*/
 

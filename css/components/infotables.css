@@ -1,0 +1,138 @@
+/* ----------------- CLASSES ----------------- */
+
+a.curactive { /* .curactive, current + active, is used instead of .active, because scrollspy removes it automatically for some reason. I want to get it fixed! On some pages it don't get removed! But it doesn't on some! IM GOIND MAD ADADMSas jd*/
+    color: white;
+    background-color: #106cfc;
+}
+a.curactive:hover {
+    color: white;
+    background-color: #106cfc;
+
+}
+
+
+
+/* ----------------- PROFILE TABLES ----------------- */
+
+table.profileTable {
+    table-layout: fixed;
+    clear: both;
+    margin-left: 2em;
+    float: right;
+    max-width: 330px;
+
+}
+table.profileTable tr td {
+
+    border: none;
+
+}
+table.profileTable .profileTableImage {
+    padding: 0;
+    text-align: center;
+}
+
+table.profileTable .center {
+    text-align: center;
+    vertical-align: top;
+    
+}
+table.profileTable .left {
+    padding-left: 0.9em;
+    text-align: left;
+    vertical-align: top;
+    
+}
+
+.profileTableLeftCell {
+    vertical-align: top !important;
+}
+
+/* ----------------- AFFILIATION TABLES ----------------- */ /* (a table used to display students or members of a club) */
+
+table.affili {
+    table-layout: fixed;
+    clear: both;
+    margin-left: 2em;
+    float: right;
+    max-width: 280px;
+
+}
+table.affili tr td {
+    border: none;
+}
+table.affili .center,
+table.affili thead tr th {
+    text-align: center;
+    vertical-align: top;
+    
+}
+
+
+
+/* ----------------- ACADEMIES TABLES ----------------- */
+
+table.academiesTable {
+    table-layout: fixed;
+    width: 80%;
+    margin: 0 auto 1.4em;
+}
+
+table.academiesTable thead tr th {
+    text-align: center;
+}
+
+table.academiesTable tbody tr {
+    margin-top: 0.3em;
+
+}
+
+table.academiesTable tbody tr td {
+    text-align: center;
+    border: none;
+
+}
+
+table.academiesTable tbody tr td p {
+    margin: 0;
+}
+
+table.academiesTable .iabutton {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+}
+
+
+table.academiesTable .innerAcademiesTable {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profileList p {
+    margin: 0;
+}
+
+
+@media (max-width: 550px) {
+
+    table.academiesTable tbody tr td {
+        padding: 0.1rem;
+    }
+}
+@media (max-width: 1290px) {
+    .academiesText {
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+table.tcenter tr td, table.tcenter thead tr th { /* not sure where this is used */
+    text-align: center;
+}

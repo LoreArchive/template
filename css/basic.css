@@ -119,7 +119,6 @@ article h1, article h2, article h3, article h4, article h5, article h6 {
 }
 
 caption,
-figcaption,
 summary,
 legend {
     font-style: italic;
@@ -240,14 +239,15 @@ th,
 td {
     padding: .3em .5em;
     margin: 0;
-    vertical-align: top;
+    vertical-align: center;
+    text-align: center;
     border: 1px solid __border__;
 }
 th {
     font-weight: bold;
     background-color: __background_alt__;
     color: inherit;
-    text-align: left;
+    text-align: center;
 }
 [dir=rtl] th {
     text-align: right;

@@ -1,6 +1,6 @@
 <?php
 /**
- * DokuWiki Frontend(template) for Lore Archive // Pre-alpha privacy configuration
+ * DokuWiki Frontend(template) for Lore Archive // Pre-release privacy configuration
  *
  * @author   Cieron <cirrow@proton.me>
  * @license  GPL 2 (http://www.gnu.org/licenses/gpl.html)
@@ -8,10 +8,11 @@
  */
 
 if (!defined('DOKU_INC')) die(); 
-@require_once(dirname(__FILE__).'/tpl_functions.php'); /* include hook for template functions */
+@require_once(dirname(__FILE__).'/tpl_functions.php'); /* include hook for template functions. Unused in this code. I think */
 
 $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && !empty($_SERVER['REMOTE_USER']) ); /* PHP boolean variable to store information. */
 $isAdmin = $INFO['isadmin']; /* Quite self-explanatory. Checks if current logged in user is an admin. */
+$mainpageWidth = ''; /* This string variable contains the bootstrap class, more information can be found looking at its actual usage.  */
 $namespacePeople = (strpos($ID, "people:") === 0) ? true : false; /* True if the current wiki page namespace begins with "people:". In other words, check if the current page is in the "PEOPLE" namespace. */
 ?>
 
@@ -44,7 +45,7 @@ $namespacePeople = (strpos($ID, "people:") === 0) ? true : false; /* True if the
     </script> <!-- Initializes bootstrap tooltips. -->
 
 
-
+    
 
 
 
@@ -65,11 +66,7 @@ $namespacePeople = (strpos($ID, "people:") === 0) ? true : false; /* True if the
         <?php require('surrounding/header/header.php') ?>
 
         <div id="dokuwiki_nonheader">
-
-    
-        <?php html_msgarea() /* occasional error and info messages on the page */ ?>
-
-
+            <?php html_msgarea() /* occasional error and info messages on the page */ ?>
             <div class="wikipage container-fluid">
                 <div class="row">
 
@@ -84,17 +81,23 @@ $namespacePeople = (strpos($ID, "people:") === 0) ? true : false; /* True if the
                         <?php tpl_flush() /* flush the output buffer */ ?>
 
                         <div class="row">
-                            <?php echo '<div id="dokuwiki__page" class="' . (in_array($ID, ["home", "Home"]) ? 'col-xxl-12 col-xl-12' : ($namespacePeople ? 'col-xxl-10 col-xl-12' : 'col-xxl-9 col-xl-12')) . ' page">'; ?>
-
-                            <div class="backToTopPosition">
-                                <div class="backToTop">
-                                    <a href="#dokuwiki__top" class="noa">
-                                        <button type="button" class="btn btn-dark">
-                                            <i class="bi bi-arrow-up"></i>
-                                        </button>
-                                    </a>
-                                </div>
-                            </div>
+                            <?php
+                                if (in_array($ID, ["home", "Home"])) {
+                                    $mainpageWidth = 'col-xxl-12 col-xl-12';
+                                } elseif ($namespacePeople) {
+                                    $mainpageWidth = 'col-xxl-10 col-xl-12';
+                                } else {
+                                    $mainpageWidth = 'col-xxl-9 col-xl-12';
+                                }
+                                
+                                if (!is_array($ACT) && $ACT == "edit") {
+                                    $mainpageWidth = 'col-xxl-12 col-xl-12';
+                                } elseif (!is_array($ACT) && $ACT == "search") {
+                                    $mainpageWidth = 'col-xxl-12 col-xl-12';
+                                }
+                                
+                                echo '<div id="dokuwiki__page" class="' . $mainpageWidth . ' page">';
+                            ?>
 
                                 <?php if($INFO['isadmin']): ?>
                                     <div id="lorearchive__pagetools">
@@ -137,7 +140,7 @@ $namespacePeople = (strpos($ID, "people:") === 0) ? true : false; /* True if the
                         </div>
                     </main>
                 </div><!--row-->
-            </div><!--wrapper-->
+            </div><!--wikipage-->
         </div> <!--NONHEADER-->
 
     </div>
@@ -213,6 +216,12 @@ $namespacePeople = (strpos($ID, "people:") === 0) ? true : false; /* True if the
     <div class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        var scrollSpy = new bootstrap.ScrollSpy(document.body, {
+            target: '#dw__toc',
+            smoothScroll: true
+        });
+    </script>
 
 
 
