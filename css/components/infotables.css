@@ -12,6 +12,7 @@ a.curactive:hover {
 
 
 
+
 /* ----------------- PROFILE TABLES ----------------- */
 
 table.profileTable {
@@ -44,11 +45,20 @@ table.profileTable .left {
     
 }
 
-.profileTableLeftCell {
+td.profileTableLeftCell {
     vertical-align: top !important;
+    text-align: left;
 }
 
-/* ----------------- AFFILIATION TABLES ----------------- */ /* (a table used to display students or members of a club) */
+
+/* ----------------- PROFILE LIST ----------------- */
+.profileList p {
+    margin: 0;
+}
+
+
+
+/* ----------------- AFFILIATION TABLES -----------------  (a table used to display students or members of a club) */
 
 table.affili {
     table-layout: fixed;
@@ -60,6 +70,7 @@ table.affili {
 }
 table.affili tr td {
     border: none;
+    text-align: center;
 }
 table.affili .center,
 table.affili thead tr th {
@@ -109,9 +120,7 @@ table.academiesTable .innerAcademiesTable {
     margin-right: auto;
 }
 
-.profileList p {
-    margin: 0;
-}
+
 
 
 @media (max-width: 550px) {

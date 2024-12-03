@@ -231,16 +231,13 @@ caption {
     caption-side: top;
     text-align: left;
 }
-[dir=rtl] caption {
-    text-align: right;
-}
+
 
 th,
 td {
     padding: .3em .5em;
     margin: 0;
     vertical-align: center;
-    text-align: center;
     border: 1px solid __border__;
 }
 th {

@@ -38,16 +38,19 @@ if (!defined('DOKU_INC')) die(); /* Must be run from within DokuWiki */
             </ul>
 
 
-            <form id="dw__search"action="<?php echo wl(); ?>" method="get" class="d-flex search" role="search">
-                <input type="hidden" name="do" value="search">
-                <input type="hidden" name="id" value="<?php global $ID; echo $ID; ?>">
+            <?php tpl_searchform() ?>
 
-                <input type="text" name="q" id="qsearch__in" class="form-control me-2 edit"  placeholder="Search" aria-label="Search" autocomplete="on">
-            </form>
-
-            <a href="https://github.com/Cirrow/dokuwiki__lorearchive" target="_blank" rel="noopener noreferrer" class="headericon">
+            <a href="https://github.com/lorearchive" target="_blank" rel="noopener noreferrer" class="headericon">
                 <i class="bi-github" style="color: black; font-size: 1.9em;"></i>
             </a>
+
+            <ul>
+                <?php if (file_exists(DOKU_INC . 'inc/Menu/SiteMenu.php')) {
+                    echo (new \dokuwiki\Menu\SiteMenu())->getListItems('action ', false);
+                } else {
+                    _tpl_sitetools();
+                } ?>
+            </ul>
 
             <?php require('aclbuttons.php') ?>
 

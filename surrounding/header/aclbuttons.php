@@ -10,7 +10,7 @@
 <?php if ($INFO['isadmin'] && $showTools): ?>
 
 <div id="headeradmin" class="btn-group">
-    <a id="adminbutton" role="button" class="btn btn-outline-primary" href="" data-bs-toggle="tooltip" data-bs-title="Go the the admin page">Admin</a>
+    <a id="adminbutton" role="button" class="btn btn-outline-primary" href="#" data-bs-toggle="tooltip" data-bs-title="Go the the admin page">Admin</a>
     <button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
         <span class="visually-hidden">Toggle Dropdown</span>
     </button>
@@ -22,7 +22,7 @@
         } ?>
         <a class="dropdown-item">Log Out</a>
 
-        <?php if (file_exists(DOKU_INC . 'inc/Menu/UserMenu.php')) 
+        <?php if (file_exists(DOKU_INC . 'inc/Menu/UserMenu.php'))
         {
             /* the first parameter is for an additional class, the second for if SVGs should be added */
             echo (new \dokuwiki\Menu\UserMenu())->getListItems('action ', false);

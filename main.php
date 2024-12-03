@@ -43,14 +43,13 @@ $namespacePeople = (strpos($ID, "people:") === 0) ? true : false; /* True if the
             });
         });
     </script> <!-- Initializes bootstrap tooltips. -->
+    <script src="./surrounding/sidebar/dist/sidebar.bundle.js"></script>
 
-
-    
 
 
 
     <?php tpl_metaheaders() ?>
-    <?php echo tpl_favicon(array('favicon', 'mobile')) ?>
+    <?php echo tpl_favicon(array('favicon', 'mobile')) /* favicon */ ?>
 
         
 </head>
@@ -61,18 +60,22 @@ $namespacePeople = (strpos($ID, "people:") === 0) ? true : false; /* True if the
 
 <?php if(!empty($_SERVER['REMOTE_USER'])): ?>
 
-    <div id="dokuwiki__site" class="<?php echo tpl_classes() /*display wiki info in the class setion, RQ */ ?>">
+    <div id="dokuwiki__site" class="<?php echo tpl_classes() /* information about the wiki as CSS classes */ ?>">
 
-        <?php require('surrounding/header/header.php') ?>
+        <?php require('surrounding/header/header.php') /* get the header */ ?>
 
         <div id="dokuwiki_nonheader">
-            <?php html_msgarea() /* occasional error and info messages on the page */ ?>
+            <div class="msgarea">
+                <?php html_msgarea() /* occasional error and info messages on the page */ ?>
+            </div>
+
             <div class="wikipage container-fluid">
                 <div class="row">
 
                     <nav id="dokuwiki__aside" aria-label="<?php echo $lang['sidebar'] ?>" class="col-auto d-none d-lg-block"> 
                         <div class="pad aside include group">
-                            <?php tpl_include_page($conf['sidebar'], 1, 1) ?>
+                            <?php /* tpl_include_page($conf['sidebar'], 1, 1) */ ?> 
+                            <div id="dokuwiki-sidebar-container"></div>
                             <div class="clearer"></div>
                         </div>
                     </nav>
@@ -90,11 +93,10 @@ $namespacePeople = (strpos($ID, "people:") === 0) ? true : false; /* True if the
                                     $mainpageWidth = 'col-xxl-9 col-xl-12';
                                 }
                                 
-                                if (!is_array($ACT) && $ACT == "edit") {
-                                    $mainpageWidth = 'col-xxl-12 col-xl-12';
-                                } elseif (!is_array($ACT) && $ACT == "search") {
+                                if (!is_array($ACT) && in_array($ACT, ["edit", "search", "media"])) {
                                     $mainpageWidth = 'col-xxl-12 col-xl-12';
                                 }
+                                
                                 
                                 echo '<div id="dokuwiki__page" class="' . $mainpageWidth . ' page">';
                             ?>
@@ -139,9 +141,9 @@ $namespacePeople = (strpos($ID, "people:") === 0) ? true : false; /* True if the
 
                         </div>
                     </main>
-                </div><!--row-->
-            </div><!--wikipage-->
-        </div> <!--NONHEADER-->
+                </div>
+            </div>
+        </div>
 
     </div>
 
@@ -222,6 +224,8 @@ $namespacePeople = (strpos($ID, "people:") === 0) ? true : false; /* True if the
             smoothScroll: true
         });
     </script>
+
+
 
 
 

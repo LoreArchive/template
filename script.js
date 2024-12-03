@@ -1,5 +1,5 @@
 /*
-This file provides Javascript code for button functions. Requires polishing.
+This file provides Javascript code.
 
 @author Cieron <cirrow@proton.me>
 
@@ -24,11 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Append &do=admin to the cleaned URL
   document.getElementById("adminbutton").href = url + "&do=admin";
-
-  // Set the edit button href
-  document.getElementById("lorearchive__adminedit").href = url + "&do=edit";
-
-
+  
 
 
 

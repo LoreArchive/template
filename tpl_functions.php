@@ -54,30 +54,6 @@ function _tpl_detailtools() {
 }
 
 
-/* -------------------------LORE ARCHIVE WIKI TOC GENERATION------------------------- */
-
-
-
-
-
-
-
-
-
-/* WARNING! THE FOLLOWING FUNCTION WORKS WHEN NO URL REWRITING IS USED. Probably going to deprecate in Alpha. */
-
-
-function _tpl_getwl($pageId, $headingId = null) {
-    // Construct the link using relative URL format for DokuWiki
-    $link = '/doku.php?id=' . $pageId;
-
-    if ($headingId) {
-        // Append heading if provided
-        $link .= '#' . $headingId;
-    }
-
-    return $link;
-}
 
 
 
