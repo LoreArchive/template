@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Sidebar from 'Sidebar.jsx'; // Ensure this matches your actual filename exactly
+import Sidebar from './Sidebar.jsx'; // Ensure this matches your actual filename exactly
 
 console.log('DokuWiki React Sidebar Script Loaded');
 
@@ -16,3 +16,5 @@ document.addEventListener('DOMContentLoaded', () => {
     console.error('Sidebar Container NOT Found');
   }
 });
+
+ReactDOM.render(<Sidebar />, document.getElementById('dokuwiki-sidebar-container'));  // Ensure it renders to the correct DOM element
