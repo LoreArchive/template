@@ -47,8 +47,6 @@ $namespacePeople = (strpos($ID, "people:") === 0) ? true : false; /* True if the
     
 
 
-
-
     <?php tpl_metaheaders() ?>
     <?php echo tpl_favicon(array('favicon', 'mobile')) /* favicon */ ?>
 
@@ -108,9 +106,7 @@ $namespacePeople = (strpos($ID, "people:") === 0) ? true : false; /* True if the
                         <?php if($conf['breadcrumbs']){ ?>
                             <div class="breadcrumbs"><?php tpl_breadcrumbs() ?></div>
                         <?php } ?>
-                        <?php if($conf['youarehere']){ ?>
-                            <div class="breadcrumbs"><?php tpl_youarehere() ?></div>
-                        <?php } ?>
+                        
 
                         <?php if ($conf['useacl'] && $showTools): ?>
 

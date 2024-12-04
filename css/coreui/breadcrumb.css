@@ -1,0 +1,14 @@
+.breadcrumbs {
+    font-size: 0.98em;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+.breadcrumbs .bchead {
+    font-weight: bold;
+}
+
+.breadcrumbs .bcsep {
+    margin: 0 0.1em;
+}
