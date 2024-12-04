@@ -13,6 +13,7 @@ if (!defined('DOKU_INC')) die();
 $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && !empty($_SERVER['REMOTE_USER']) ); /* PHP boolean variable to store information. */
 $isAdmin = $INFO['isadmin']; /* Quite self-explanatory. Checks if current logged in user is an admin. */
 $mainpageWidth = ''; /* This string variable contains the bootstrap class, more information can be found looking at its actual usage.  */
+$tocWidth = 'col-xxl-3'; /* Just like $mainpageWidth. */
 $namespacePeople = (strpos($ID, "people:") === 0) ? true : false; /* True if the current wiki page namespace begins with "people:". In other words, check if the current page is in the "PEOPLE" namespace. */
 ?>
 
@@ -69,80 +70,88 @@ $namespacePeople = (strpos($ID, "people:") === 0) ? true : false; /* True if the
                 <?php html_msgarea() /* occasional error and info messages on the page */ ?>
             </div>
 
-            <div class="wikipage container-fluid">
-                <div class="row">
+            <div class="wikipage container-fluid"><div class="row">
 
-                    <nav id="dokuwiki__aside" aria-label="<?php echo $lang['sidebar'] ?>" class="col-auto d-none d-lg-block"> 
-                        <div class="pad aside include group">
-                            <?php /* tpl_include_page($conf['sidebar'], 1, 1) */ ?> 
-                            <?php require('surrounding/sidebar/index.html') ?>
-                            <div class="clearer"></div>
-                        </div>
-                    </nav>
+                <nav id="dokuwiki__aside" aria-label="<?php echo $lang['sidebar'] ?>" class="col-auto d-none d-lg-block"> 
+                    <div class="pad aside include group">
+                        <?php  tpl_include_page($conf['sidebar'], 1, 1)  ?> 
+                        <div class="clearer"></div>
+                    </div>
+                </nav>
 
-                    <main id="dokuwiki__content" class="col">
-                        <?php tpl_flush() /* flush the output buffer */ ?>
+                <main id="dokuwiki__content" class="col container-fluid"><div class="row">
+                    <?php tpl_flush() /* flush the output buffer */ ?>
 
-                        <div class="row">
-                            <?php
-                                if (in_array($ID, ["home", "Home"])) {
-                                    $mainpageWidth = 'col-xxl-12 col-xl-12';
-                                } elseif ($namespacePeople) {
-                                    $mainpageWidth = 'col-xxl-10 col-xl-12';
-                                } else {
-                                    $mainpageWidth = 'col-xxl-9 col-xl-12';
-                                }
-                                
-                                if (!is_array($ACT) && in_array($ACT, ["edit", "search", "media"])) {
-                                    $mainpageWidth = 'col-xxl-12 col-xl-12';
-                                }
-                                
-                                
-                                echo '<div id="dokuwiki__page" class="' . $mainpageWidth . ' page">';
-                            ?>
+                    <?php
+                        if (in_array($ID, ["home", "Home"])) {
+                            $mainpageWidth = 'col-xxl-12';
+                        } elseif ($namespacePeople) {
+                            $mainpageWidth = 'col-xxl-10';
+                        } else {
+                            $mainpageWidth = 'col-xxl-9';
+                        }
+                        
+                        if (!is_array($ACT) && in_array($ACT, ["edit", "search", "media"])) {
+                            $mainpageWidth = 'col-xxl-12';
+                        }
+                        
+                        
+                        echo '<div id="dokuwiki__page" class="' . $mainpageWidth . ' col-xl-12 page">';
+                    ?>
 
-                                <?php if($INFO['isadmin']): ?>
-                                    <div id="lorearchive__pagetools">
-                                        <?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>
-                                    </div>
-                                <?php endif ?>
-
-                                <?php if($conf['breadcrumbs']){ ?>
-                                    <div class="breadcrumbs"><?php tpl_breadcrumbs() ?></div>
-                                <?php } ?>
-                                <?php if($conf['youarehere']){ ?>
-                                    <div class="breadcrumbs"><?php tpl_youarehere() ?></div>
-                                <?php } ?>
-
-                                <?php if ($conf['useacl'] && $showTools): ?>
-
-
-                                <?php endif ?>
-        
-                                <article data-bs-spy="scroll" data-bs-target="#dw__toc" data-bs-smooth-scroll="true" tabindex="0" class="wikicontent">
-
-                                    <!-- wikipage start -->
-                                    <?php tpl_content(false) /* the main content */ ?>
-                                    <!-- wikipage stop -->
-
-                                    <div class="footertext">
-                                        <p><em>Every article is a WIP and anything written may not be accurate or up to date.<br>All images used in this wiki belong to their respective owners</em>.</p>
-                                    </div>
-                                
-                                </article>
-                                
-                                <div class="clearer"></div>
+                        <?php if($INFO['isadmin']): ?>
+                            <div id="lorearchive__pagetools">
+                                <?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>
                             </div>
+                        <?php endif ?>
 
-                            <?php if($ID != "home"): ?>
-                                <?php echo '<div class="' . ($namespacePeople ? 'col-xxl-2' : 'col-xxl-3') . ' d-none d-xxl-block toc">'; ?>
-                                <?php tpl_toc() ?>
-                            <?php endif ?>
+                        <?php if($conf['breadcrumbs']){ ?>
+                            <div class="breadcrumbs"><?php tpl_breadcrumbs() ?></div>
+                        <?php } ?>
+                        <?php if($conf['youarehere']){ ?>
+                            <div class="breadcrumbs"><?php tpl_youarehere() ?></div>
+                        <?php } ?>
 
-                        </div>
-                    </main>
-                </div>
-            </div>
+                        <?php if ($conf['useacl'] && $showTools): ?>
+
+
+                        <?php endif ?>
+
+                        <article data-bs-spy="scroll" data-bs-target="#dw__toc" data-bs-smooth-scroll="true" tabindex="0" class="wikicontent">
+
+                            <!-- wikipage start -->
+                            <?php tpl_content(false) /* the main content */ ?>
+                            <!-- wikipage stop -->
+
+                            <div class="footertext">
+                                <p><em>Every article is a WIP and anything written may not be accurate or up to date.<br>All images used in this wiki belong to their respective owners</em>.</p>
+                            </div>
+                        
+                        </article>
+                        
+                        <div class="clearer"></div>
+                    </div>
+
+                    <?php
+                        if ($ID == "home" || $mainpageWidth == 'col-xxl-12') {
+                            $tocWidth = 'col-xxl-0';
+
+                        } elseif ($namespacePeople) {
+                            $tocWidth = 'col-xxl-2';
+
+                        }
+
+                        if ($tocWidth !== 'col-xxl-0') {
+                            echo '<div class="' . $tocWidth . ' d-none d-xxl-block toc">';
+                            tpl_toc();
+                            echo '</div>';
+                        }
+                    ?>
+
+                    
+
+                </div></main>
+            </div></div>
         </div>
 
     </div>

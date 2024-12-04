@@ -6,16 +6,15 @@
 /* toc
 ********************************************************************/
 
-/* toc container */
-#dw__toc 
-
-{
-    float: left;
-    margin: 1em 0 1.4em 2em;
+#dw__toc { 
+    position: fixed;
+    top: 10vh;
+    margin-left: 2rem;
     max-width: 100%;
     color: inherit;
-    border-left: 1px solid grey;
+    border-left: 1px solid #d1d1d1;
     padding-left: 0.5em;
+
 }
 
 
@@ -24,6 +23,7 @@
     font-size: 0.85em;
     color: grey;
     padding: 0.3em 0.3em 0.3em 0.5em;
+    margin: 0.05rem 0;
 }
 #dw__toc a:hover{
     text-decoration: none;

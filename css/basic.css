@@ -90,15 +90,17 @@ h3 {
 }
 h4 {
     font-size: 1.2em;
-    margin: 1.4em 0 1.2em;
+    margin: 0.8em 0 1.2em;
 }
 
 h5 {
-    font-size: 1.08em;
+    font-size: 1em;
+    font-weight: bold;
     margin: 0 0 1.1428em;
 }
 h6 {
     font-size: 1em;
+    font-weight: bold;
     margin: 0 0 1.333em;
 }
 /* bottom margin = 1 / font-size */
@@ -140,7 +142,6 @@ legend {
 ul,
 ol,
 dl,
-pre,
 table,
 hr,
 blockquote,
@@ -163,10 +164,6 @@ div {
 ul,
 ol {
     padding: 0 0 0 1.5em;
-}
-[dir=rtl] ul,
-[dir=rtl] ol {
-    padding: 0 1.5em 0 0;
 }
 
 li,
@@ -358,9 +355,12 @@ kbd {
 }
 pre {
     border: 1px solid __border__;
-    padding: 0 .2em;
+    padding: 0.5em 1em;
     overflow: auto;
     word-wrap: normal;
+}
+table pre.code {
+    margin: 0;
 }
 
 blockquote {

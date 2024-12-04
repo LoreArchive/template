@@ -100,18 +100,21 @@ body {
 
 #dokuwiki__content {
 
-    padding: 0 4em 0 4em;
+    padding: 0 4em 0;
+
 
 }
 
 main {
     flex: 1;
-    padding-top: 1em;
+    overflow-x: auto;
     overflow-y: visible;
     height: 100%;
     display: flex;
     flex-direction: column;
+
 }
+
 
 
 .page {
@@ -122,25 +125,11 @@ main {
 }
 
 
-.backToTop {
-    display: none;
-}
-
-
 .toc {
-    position: sticky;
-    top: 8vh; /* Stick the TOC below the header */
+
     overflow: hidden;
     height: 100%;
 }
-
-
-.toc > .pad {
-    padding: 1em;
-}
-
-
-
 
 
 article {
@@ -165,16 +154,6 @@ article .footertext {
 
 }
 
-
-
-
-@media (max-width: 1024px)
-{
-    .dokuwiki__aside {
-
-        display: none;
-    }
-}
 
 
 /* THIS SECTION DEALS WITH THE STRUCUTRE WHEN THE SCREEN IS LARGE */
