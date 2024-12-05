@@ -72,7 +72,7 @@ $namespacePeople = (strpos($ID, "people:") === 0) ? true : false; /* True if the
 
                 <nav id="dokuwiki__aside" aria-label="<?php echo $lang['sidebar'] ?>" class="col-auto d-none d-lg-block"> 
                     <div class="pad aside include group">
-                        <?php  tpl_include_page($conf['sidebar'], 1, 1)  ?> 
+                        <?php  /* tpl_include_page($conf['sidebar'], 1, 1) */  ?> 
                         <div class="clearer"></div>
                     </div>
                 </nav>
