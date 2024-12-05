@@ -63,7 +63,7 @@ $namespacePeople = (strpos($ID, "people:") === 0) ? true : false; /* True if the
 
         <?php require('surrounding/header/header.php') /* get the header */ ?>
 
-        <div id="dokuwiki_nonheader">
+        <div id="dokuwiki__nonheader">
             <div class="msgarea">
                 <?php html_msgarea() /* occasional error and info messages on the page */ ?>
             </div>

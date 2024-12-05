@@ -11,11 +11,6 @@
 }
 
 
-body {
-    margin: 0 auto;
-    background-color: white;
-}
-
 #dokuwiki__site {
     top: 0;
     margin: 0;
@@ -27,13 +22,11 @@ body {
 }
 
 
-
-
-
-#dokuwiki_nonheader {
+#dokuwiki__nonheader {
     margin-top: 8vh;
     display: flex;
     flex: 1;
+    height: 100%;
 
 }
 
@@ -83,8 +76,6 @@ body {
     display: none;
 }
 
-
-
 @media (max-width: 992px) { /* bootstrap lg */
 
     #lorearchive__pagetools {
@@ -92,9 +83,6 @@ body {
     }
 
 }
-
-
-
 
 
 
