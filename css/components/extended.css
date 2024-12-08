@@ -43,3 +43,16 @@ div.alertflex p {
 .mikiop.mikiop-blockquote p {
     font-size: 1.1rem !important;
 }
+
+
+
+/* ----------------- REFNOTES ----------------- */
+
+div.refnotes hr {
+    display: none !important;
+}
+
+div.notes.reduced sup {
+
+    font-size: 1em !important;
+}

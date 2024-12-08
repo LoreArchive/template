@@ -34,7 +34,7 @@ body {
 }
 sup {
     margin-left: 0.1rem;
-    vertical-align: 0.2em !important;
+    vertical-align: 0.2em;
     line-height: 1;
 }
 
@@ -378,17 +378,14 @@ q:after {
     content: '';
 }
 
-sub,
-sup {
+sub {
     font-size: .8em;
     line-height: 1;
 }
 sub {
     vertical-align: sub;
 }
-sup {
-    vertical-align: super;
-}
+
 
 small {
     font-size: .8em;

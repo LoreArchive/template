@@ -114,11 +114,20 @@ table.academiesTable .iabutton {
     width: 100%;
 }
 
+table.academiesTable td.innerAcademiestd {
+    padding: 0;
+}
 
-table.academiesTable .innerAcademiesTable {
+
+table.academiesTable .innerAcademiesTable table {
+    border: none;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 0;
 }
+
+
+
 
 
 
