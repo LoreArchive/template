@@ -6,6 +6,12 @@
 /* toc
 ********************************************************************/
 
+.toc {
+
+    overflow: hidden;
+    height: 100%;
+}
+
 #dw__toc { 
     position: fixed;
     top: 10vh;
@@ -16,6 +22,7 @@
     border-left: 1px solid #d1d1d1;
     padding-left: 0.5em;
     overflow-y: auto;
+    z-index: 10;
 
 }
 

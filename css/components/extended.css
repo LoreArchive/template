@@ -1,5 +1,19 @@
 /* ----------------- ALERTS ----------------- */
 
+.alertflex {
+    display: flex;
+    align-items: center;
+}
+
+.alert i {
+    font-size: 1.5em;
+    margin-right: 1em;
+}
+
+.alert p {
+    margin-bottom: 0 !important;
+}
+
 div.alert p {
     width: auto;
 }

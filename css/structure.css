@@ -113,25 +113,13 @@ main {
 }
 
 
-.toc {
 
-    overflow: hidden;
-    height: 100%;
-}
 
 
 article {
     margin-top: 2.5em;
     padding-bottom: 1em;
-}
-
-
-
-
-#insitu__fn {
-    padding: 0.7em;
-    max-width: 365px;
-    border-radius: 6px;
+    position: relative;
 }
 
 
@@ -141,6 +129,35 @@ article .footertext {
     text-align: center;
 
 }
+
+
+.editicon {
+    margin-right: 0.3em;
+    font-size: 1.3em;
+}
+
+a.githubedit {
+    position: absolute;
+    color: white;
+    background-color: black;
+    padding: 0.1em 0.1em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: transparent;
+    border-radius: 20px;
+    
+    width: 80px;
+    top: 0;
+    right: 0;
+}
+
+.githubedittext {
+    font-size: 0.8em;
+}
+
 
 
 

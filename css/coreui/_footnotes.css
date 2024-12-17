@@ -4,6 +4,13 @@
 
 /*____________ footnotes inside the text ____________*/
 
+#insitu__fn {
+    padding: 0.7em;
+    max-width: 365px;
+    border-radius: 6px;
+    z-index: 1000;
+}
+
 
 /* JSpopup */
 div.insitu-footnote {
@@ -28,3 +35,4 @@ div.insitu-footnote {
 .dokuwiki div.footnotes div.fn sup a.fn_bot {
     font-weight: bold;
 }
+

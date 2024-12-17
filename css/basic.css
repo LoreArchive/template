@@ -108,12 +108,7 @@ h6 {
 /* bottom margin = 1 / font-size */
 
 
-.noheadingmargin h1,
-.noheadingmargin h2,
-.noheadingmargin h3,
-.noheadingmargin h4,
-.noheadingmargin h5,
-.noheadingmargin h6 {
+.noheadingmargin :is(h1, h2, h3, h4, h5, h6) {
 
     margin: 0;
 

@@ -12,9 +12,12 @@ if (!defined('DOKU_INC')) die();
 
 $showTools = !tpl_getConf('hideTools') || ( tpl_getConf('hideTools') && !empty($_SERVER['REMOTE_USER']) ); /* PHP boolean variable to store information. */
 $isAdmin = $INFO['isadmin']; /* Quite self-explanatory. Checks if current logged in user is an admin. */
+
 $mainpageWidth = ''; /* This string variable contains the bootstrap class, more information can be found looking at its actual usage.  */
 $tocWidth = 'col-xxl-3'; /* Just like $mainpageWidth. */
+
 $namespacePeople = (strpos($ID, "people:") === 0) ? true : false; /* True if the current wiki page namespace begins with "people:". In other words, check if the current page is in the "PEOPLE" namespace. */
+$blob = str_replace([';', ':'], '/', $ID);
 ?>
 
 
@@ -31,10 +34,7 @@ $namespacePeople = (strpos($ID, "people:") === 0) ? true : false; /* True if the
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- jBox CSS -->
-    <link href="https://cdn.jsdelivr.net/gh/StephanWagner/jBox@v1.3.2/dist/jBox.all.min.css" rel="stylesheet">
 
-    
 
     <title><?php tpl_pagetitle() /* get the page title. */ ?> | <?php echo strip_tags($conf['title']) /* get the wiki title. */ ?></title>
     
@@ -44,6 +44,8 @@ $namespacePeople = (strpos($ID, "people:") === 0) ? true : false; /* True if the
 
     <?php tpl_metaheaders() ?>
     <?php echo tpl_favicon(array('favicon', 'mobile')) /* favicon */ ?>
+
+    <?php if (strpos($ID, 'external:comics') === 0) { echo '<style>h1 { font-style: italic; }</style>'; } /* Italicize the heading if the page is inside namespace external:comics */ ?>
 
         
 </head>
@@ -109,6 +111,7 @@ $namespacePeople = (strpos($ID, "people:") === 0) ? true : false; /* True if the
                         <?php endif ?>
 
                         <article data-bs-spy="scroll" data-bs-target="#dw__toc" data-bs-smooth-scroll="true" tabindex="0" class="wikicontent">
+                            <a href="https://github.com/lorearchive/content/blob/main/<?php echo $blob ?>.txt" class="githubedit"><i class="bi bi-github editicon"></i><span class="githubedittext">Edit</span></a>
 
                             <!-- wikipage start -->
                             <?php tpl_content(false) /* the main content */ ?>
@@ -122,6 +125,7 @@ $namespacePeople = (strpos($ID, "people:") === 0) ? true : false; /* True if the
                         
                         <div class="clearer"></div>
                     </div>
+
 
                     <?php
                         if ($ID == "home" || $mainpageWidth == 'col-xxl-12') {
@@ -210,34 +214,19 @@ $namespacePeople = (strpos($ID, "people:") === 0) ? true : false; /* True if the
 <?php endif ?>
 
 
-
-
-
-
-
     <div class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
+    
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!-- jBox JS -->
-    <script src="https://cdn.jsdelivr.net/gh/StephanWagner/jBox@v1.3.2/dist/jBox.all.min.js"></script>
-
-    <script>
-        new jBox('Tooltip', {
-            attach: '.jboxTooltip'
-        });
-    </script>
-
-
+    
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
         var scrollSpy = new bootstrap.ScrollSpy(document.body, {
             target: '#dw__toc',
-            smoothScroll: true
         });
+
+
     </script>
 
     <script>
@@ -249,9 +238,42 @@ $namespacePeople = (strpos($ID, "people:") === 0) ? true : false; /* True if the
         });
     </script> <!-- Initializes bootstrap tooltips. -->
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Select the TOC container
+            const toc = document.getElementById('dw__toc');
+            
+            if (toc) {
+                toc.addEventListener('click', (event) => {
+                    const target = event.target;
+
+                    // Check if the clicked element is an <a> tag
+                    if (target.tagName === 'A' && target.getAttribute('href')) {
+                        const href = target.getAttribute('href'); // Get the href value
+
+                        // Append the href value to the current URL
+                        const newUrl = `${window.location.origin}${window.location.pathname}${href}`;
+                        window.history.pushState(null, '', newUrl);
+
+                        // Default scroll behavior will happen automatically
+                    }
+                });
+            }
+
+            // Find all heading elements (h1 to h6)
+            const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+
+            // Loop through each heading and add the data-bs-root-margin attribute
+            headings.forEach(function(heading) {
+                heading.setAttribute('data-bs-offset', '0');
+            });
+
+        });
+
+    </script>
+
 
     
-
 
 
 </body>

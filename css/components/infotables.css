@@ -55,6 +55,9 @@ td.profileTableLeftCell {
 .profileList p {
     margin: 0;
 }
+.profileList > a:first-of-type {
+    color: black;
+}
 
 
 
